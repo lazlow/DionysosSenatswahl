@@ -6,6 +6,8 @@
 	 */
 	require_once 'xmlrpc/xmlrpc.inc';
 	require_once 'XMLRPCException.php';
+	require_once 'simple_html_dom.php';
+	
 	error_reporting(E_ALL);
 	ini_set('error_reporting',E_ALL);
 	ini_set('display_errors', 1);

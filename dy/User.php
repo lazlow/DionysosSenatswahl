@@ -163,126 +163,128 @@
 		}
 		
 		/**
-	 * @return the $id
-	 */
-	public function getId() {
-		return $this->id;
-	}
-
+		 * @return the $id
+		 */
+		public function getId() {
+			return $this->id;
+		}
+	
+			/**
+		 * @return the $idtype
+		 */
+		public function getIdtype() {
+			return $this->idtype;
+		}
+	
+			/**
+		 * @return the $title
+		 */
+		public function getTitle() {
+			return $this->title;
+		}
+	
+			/**
+		 * @return the $first_name
+		 */
+		public function getFirst_name() {
+			return $this->first_name;
+		}
+	
+			/**
+		 * @return the $name
+		 */
+		public function getName() {
+			return $this->name;
+		}
+	
+			/**
+		 * @return the $city
+		 */
+		public function getCity() {
+			return $this->city;
+		}
+	
+			/**
+		 * @return the $county
+		 */
+		public function getCounty() {
+			return $this->county;
+		}
+	
+			/**
+		 * @return the $birthdate
+		 */
+		public function getBirthdate() {
+			return $this->birthdate;
+		}
+	
+			/**
+		 * @return the $residency_dionysos
+		 */
+		public function getResidency_dionysos() {
+			return $this->residency_dionysos;
+		}
+	
+			/**
+		 * @return the $residency_county
+		 */
+		public function getResidency_county() {
+			return $this->residency_county;
+		}
+	
+			/**
+		 * @return the $residency_city
+		 */
+		public function getResidency_city() {
+			return $this->residency_city;
+		}
+	
+			/**
+		 * @return the $last_seen
+		 */
+		public function getLast_seen() {
+			return $this->last_seen;
+		}
+	
+			/**
+		 * @return the $appointments
+		 */
+		public function getAppointments() {
+			return $this->appointments;
+		}
+	
+			/**
+		 * @return the $firms
+		 */
+		public function getFirms() {
+			return $this->firms;
+		}
+	
+			/**
+		 * @return the $partey
+		 */
+		public function getPartey() {
+			return $this->partey;
+		}
+	
 		/**
-	 * @return the $idtype
-	 */
-	public function getIdtype() {
-		return $this->idtype;
-	}
-
+		 * Not implemented
+		 * 
+		 * @return the $clubs
+		 */
+		public function getClubs() {
+			return $this->clubs;
+		}
 		/**
-	 * @return the $title
-	 */
-	public function getTitle() {
-		return $this->title;
-	}
-
-		/**
-	 * @return the $first_name
-	 */
-	public function getFirst_name() {
-		return $this->first_name;
-	}
-
-		/**
-	 * @return the $name
-	 */
-	public function getName() {
-		return $this->name;
-	}
-
-		/**
-	 * @return the $city
-	 */
-	public function getCity() {
-		return $this->city;
-	}
-
-		/**
-	 * @return the $county
-	 */
-	public function getCounty() {
-		return $this->county;
-	}
-
-		/**
-	 * @return the $birthdate
-	 */
-	public function getBirthdate() {
-		return $this->birthdate;
-	}
-
-		/**
-	 * @return the $residency_dionysos
-	 */
-	public function getResidency_dionysos() {
-		return $this->residency_dionysos;
-	}
-
-		/**
-	 * @return the $residency_county
-	 */
-	public function getResidency_county() {
-		return $this->residency_county;
-	}
-
-		/**
-	 * @return the $residency_city
-	 */
-	public function getResidency_city() {
-		return $this->residency_city;
-	}
-
-		/**
-	 * @return the $last_seen
-	 */
-	public function getLast_seen() {
-		return $this->last_seen;
-	}
-
-		/**
-	 * @return the $appointments
-	 */
-	public function getAppointments() {
-		return $this->appointments;
-	}
-
-		/**
-	 * @return the $firms
-	 */
-	public function getFirms() {
-		return $this->firms;
-	}
-
-		/**
-	 * @return the $partey
-	 */
-	public function getPartey() {
-		return $this->partey;
-	}
-
-	/**
-	 * Not implemented
-	 * 
-	 * @return the $clubs
-	 */
-	public function getClubs() {
-		return $this->clubs;
-	}
-
-	/**
-	 * @return the $xr
-	 */
-
+		 * Fetch the Residency Date (very dirty)
+		 * 
+		 * @see User::__construct()
+		 * @deprecated Will be moved to the Constructor sooner or later
+		 * @param int $id
+		 */
 		public static function fetchResidency($id) {
 			$html = file_get_html('http://www.republik-dionysos.de/index.php?page=gesellschaft&sub=buerger&s=profil&id=' . $id);
-			$mytds = $html->find('td');#
+			$mytds = $html->find('td');
 			for ($i = 0; $i < count($mytds); $i++) {
 				//echo "mytds[$i] = $mytds[$i]\n";
 				if (strpos($mytds[$i]->innertext,'Im Staat seit:') !== false)
