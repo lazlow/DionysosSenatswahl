@@ -1,0 +1,50 @@
+Ballot:
+	columns:
+		id:
+			type: integer(4)
+			primary: true
+			autoincrement: true
+		name:
+			type: string(255)
+		link:
+			type: string(255)
+Candidate:
+	columns:
+		id:
+			type: integer(4)
+			primary: true
+			autoincrement: true
+		name:
+			type: string(255)
+		description:
+			type: string(255)
+		ctype:
+			type: integer(4)
+Vote:
+	columns:
+		id:
+			type: integer(4)
+			primary: true
+			autoincrement: true
+		county:
+			type: integer(4)
+		relations:
+			Vox:
+				foreignAlias: Candidates
+				class: Candidate
+				refClass: Vox
+			
+Vox:
+	columns:
+		vote_id:
+			type: integer(4)
+			primary: true
+		candidate_id:
+			type: integer(4)
+			primary: true
+	relations:
+		Vote:
+			foreignAlias: Voxx
+		Candidate:
+			foreignAlias: Voxx
+--- Not tested yet
